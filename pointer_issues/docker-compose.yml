@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ntpd:
+    build: ./ntpd
+    container_name: cwe476_null_pointer_dereference
+
+  exploit:
+    build: ./exploit
+    container_name: exploit_cwe476_null_pointer_dereference
+    environment:
+      - NTPD_ADDR=ntpd
+    depends_on:
+      - "ntpd"
+
