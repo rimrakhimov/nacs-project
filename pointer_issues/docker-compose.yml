@@ -2,11 +2,13 @@ version: '3'
 
 services:
   ntpd:
-    build: ./ntpd
+    # build: ./ntpd
+    image: "romerion/pointer_issues_ntpd"
     container_name: cwe476_null_pointer_dereference
 
   exploit:
-    build: ./exploit
+    # build: ./exploit
+    image: "romerion/pointer_issues_exploit"
     container_name: exploit_cwe476_null_pointer_dereference
     environment:
       - NTPD_ADDR=ntpd
